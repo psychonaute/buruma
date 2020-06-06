@@ -1,0 +1,16 @@
+{% for ressource in article.ressources.split(';') %}
+    {% set link_elem = ressource.split(',') %}
+    {% if link_elem[1] == 'link' %}
+        <!-- it's a external link -->
+        <img src="{{ SITEURL }}/static/images/icons/link.svg" alt="Icon{{ link_elem[1] }}" style="height:32px">
+        <a class="button is-primary is-small is-rounded" href="{{ link_elem[2].strip()  }}">
+            {{ link_elem[0].strip().capitalize() }}
+        </a>           
+    {% else %}
+        <!-- it's a internal link -->
+        <img src="{{ SITEURL }}/static/images/icons/{{ link_elem[1].strip() }}.svg" alt="Icon{{ link_elem[1] }}" style="height:32px">
+        <a class="button is-primary is-small is-rounded" href="{{ link_elem[2].strip() }}">
+            {{ link_elem[0].strip().capitalize() }}
+        </a>
+    {% endif%}
+{% endfor %}

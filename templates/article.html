@@ -1,17 +1,53 @@
 {% extends "base.html" %}
 
 {% block title %}
-{{ article.title|striptags|e }} {% if article.subtitle %} - {{ article.subtitle|striptags|e }} {% endif %} - {{ super() }}
+	{{ article.title|striptags|e }} {% if article.subtitle %} - {{ article.subtitle|striptags|e }} {% endif %} - {{ super() }}
 {% endblock title %}
 
 {% block content %}
-<article class="message is-info">
-	<div class="message-header">
-		<h2>{{ article.title }}</h2>
-		<p><time itemprop="dateCreated" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></p>
+	<div class="columns">
+		<div class="column is-two-thirds">
+			<article class="message is-info">
+				<div class="message-header">
+					<h2 class="is-size-5">{{ article.title }}</h2>
+					<h2><time itemprop="dateCreated" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></h2>
+				</div>
+				<div class="message-body has-text-dark">
+					{% if article.category == 'podcast' %}
+						<div class="columns">
+							<div class="column is-two-fifths">
+								<audio controls class="is-info">
+									<source src="{{ article.audio }}" type="audio/mp3">
+									Your browser does not support the audio element.
+								</audio>
+								{% if article.ressources %}
+								<p>{% include "_includes/ressources_section.html" %}</p>
+								{% endif %}
+							</div>
+							<div class="column">
+								{{ article.content }}
+							</div>
+						</div>
+					{% else%}
+						{{ article.content }}
+						{% if article.ressources %}
+						<p>{% include "_includes/ressources_section.html" %}</p>
+						{% endif %}
+					{% endif %}
+				</div>
+			</article>
+		</div>
+		<div class="column">
+			<div class="columns is-multiline">
+				<div class="column is-full">
+					{% include "_includes/last_news_box.html" %}
+				</div>
+				{% if article.tags %}
+				<div class="column is-full">
+					{% include "_includes/tag_box.html" %}
+				</div>
+				{% endif %}
+			</div>
+		</div>
 	</div>
-	<div class="message-body has-text-dark">
-		{{ article.content }}
-	</div>
-</article>
 {% endblock content %}

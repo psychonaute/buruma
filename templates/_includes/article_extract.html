@@ -1,18 +1,16 @@
 <article class="message {% for cat in CATS_STYLE %}{% if article.category == cat %}{{ CATS_STYLE[cat] }}{% endif %}{% endfor %}">
-	<div class="message-header">
-		<p>{{ article.category }}</p>
+	<div class="message-header is-info">
+		<h2 class="is-size-5"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+		<h2><time itemprop="dateCreated" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></h2>
 	</div>
 	<div class="message-body">
-		<div class="columns is-multiline">
-			<div class="column is-one-quarter has-text-centered">
-				<p><time itemprop="dateCreated" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></p>
-				<p>{% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}"><span class="tag is-link">{{ tag }}</span></a> {% endfor %}</p>
-			</div>
-			<div class="column">
-				<h2 class="is-size-5"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-				{% if article.extract %}<p class="has-text-dark">{{ article.extract }}</p>{% endif %}
-			</div>
-		</div>
+			{% if article.poster %}
+				<figure class="image is-3by1">
+					<a href="{{ SITEURL }}/{{ article.url }}"><img src="/static/image/{{ article.poster }}"></a>
+				</figure>
+			{% endif %}
+			{% if article.summary %}<p class="has-text-dark">{{ article.summary }}</p>{% endif %}
+		<p>{% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}"><span class="tag is-info">{{ tag }}</span></a> {% endfor %}</p>
 	</div>
 </article>
 
