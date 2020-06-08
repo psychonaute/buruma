@@ -8,6 +8,6 @@
 	<h1 class="title">{% trans %}Articles by{% endtrans %} {{ author }}</h1>
 
 	{% for article in dates %}
-		{% include "_includes/article_extract.html" %}
+		{% include "includes/article_extract.html" %}
 	{% endfor %}
 {% endblock content %}

@@ -17,6 +17,9 @@
 		{% if TWITTER_USERNAME %}
 			<meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}" />
 		{% endif %}
+		{% if FONTAWSOME_SCRIPT_TAG %}
+			{{ FONTAWSOME_SCRIPT_TAG }}
+		{% endif%}
 		<title>{% block title %}{{ SITENAME|striptags|e }}{% endblock title %}</title>
 		<link rel="stylesheet" type="text/css" href="{{ main_siteurl }}/theme/css/style.min.css">
 		<script src="{{ main_siteurl }}/theme/js/menu.js"></script>
@@ -33,7 +36,7 @@
 						<!-- Empty -->
 					{% elif THEME_LOGO is defined %}
 						<a class="navbar-item" href="{{ SITEURL }}">
-							<img src="{{ THEME_LOGO }}" width="112" height="28">
+							<img class="image" style="height:32px" src="{{ THEME_LOGO }}">
 						</a>
 					{% elif THEME_LOGO is not defined %}
 						<a class="navbar-item" href="{{ SITEURL }}">
@@ -48,15 +51,15 @@
 				</div>
 				<div id="navbarMain" class="navbar-menu">
 					<div class="navbar-start">
-					{% for item, link in MENUITEMS_NAVBAR %}
-						<a class="navbar-item" href="{{ link }}">
-							{{ item }}
-						</a>
-					{% endfor %}
 					{% for cat in categories %}
 						{% if subcategory_tree[cat[0].name] %}
 						<div class="navbar-item has-dropdown is-hoverable">
 							<a class="navbar-link" href="/{{ cat[0].url }}">
+								{% if CATEGORY_ICON[cat[0].name] %}
+								<span class="icon">
+									<i class="fas {{ CATEGORY_ICON[cat[0].name] }}"></i>
+								</span>
+								{% endif %}
 								{{ cat[0] }}
 							</a>
 							<div class="navbar-dropdown">
@@ -69,9 +72,19 @@
 						</div>
 						{% else %}
 						<a class="navbar-item" href="/{{ cat[0].url }}">
+							{% if CATEGORY_ICON[cat[0].name] %}
+							<span class="icon">
+								<i class="fas {{ CATEGORY_ICON[cat[0].name] }}"></i>
+							</span>
+							{% endif %}
 							{{ cat[0] }}
 						</a>
 						{% endif %}
+					{% endfor %}
+					{% for item, link in MENUITEMS_NAVBAR %}
+						<a class="navbar-item" href="{{ link }}">
+							{{ item }}
+						</a>
 					{% endfor %}
 				</div>
 				<div class="navbar-end">
@@ -99,15 +112,15 @@
 						{% if FOOTER %}
 							{{ FOOTER }}
 						{% else %}
-							<p>{% trans %}Website generated with{% endtrans %} <a href="https://getpelican.com">Pelican</a>. <a href="https://github.com/ivanhercaz/buruma">Buruma</a> {% trans %}theme by{% endtrans %} <a href="https://ivanhercaz.com">Ivanhercaz</a></p>
+							<p>{% trans %}Website generated with{% endtrans %} <a href="https://getpelican.com">Pelican</a>. {% trans %}Theme forked from{% endtrans %} <a href="https://github.com/ivanhercaz/buruma">Buruma</a></p>
 						{% endif %}
 						<p><a href="https://bulma.io">
 							<img src="/theme/images/made_with_bulma.png" alt="Made with Bulma" width="128" height="24">
 						</a></p>
 					</div>
 					<div class="column">
-						{% if LICENSE %}
-							{{ LICENSE_NOTICE}}	
+						{% if LICENSE_NOTICE %}
+							{{ LICENSE_NOTICE }}	
 						{% else %}
 							<p>{% trans %}All rights reserved ©{% endtrans %} {{ AUTHOR }}</p>
 						{% endif %}

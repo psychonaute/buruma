@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 /* SCSS HSL */
 $honolulu-blue: rgba(41, 111, 173, 1);
@@ -12,7 +12,7 @@ $maximum-yellow-red: rgba(249, 183, 77, 1);
 $orange-web: rgba(248, 163, 29, 1);
 $emerald: rgba(72, 199, 116, 1);
 $terra-cotta: rgba(237, 110, 89, 1);
-
+$grey-dark:hsla(0, 0%, 40%, 1);
 
 // Update Bulma's global variables
 $primary: $honolulu-blue;
@@ -20,9 +20,9 @@ $info: $indigo-dye;
 $link: $orange-web;
 $success: $emerald;
 $warning: $terra-cotta;
-$family-sans-serif: "Nunito", sans-serif;
+$family-sans-serif: "Lato", sans-serif;
 
-
+// must be imported after the modif
 @import "../../node_modules/bulma/bulma.sass";
 
 
@@ -32,6 +32,14 @@ $dark: $grey-darker
 $text: $grey-dark
 */
 
+// .navbar-item {
+// 	h4 {
+// 		font-family: 'Chewy';
+// 		color: #888;
+// 		margin-left: 0.5em;
+// 		text-decoration: none !important;
+// 	}
+// }
 
 
 h2 {

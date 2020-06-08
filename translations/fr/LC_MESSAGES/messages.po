@@ -1,0 +1,98 @@
+# French translations for PROJECT.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-06-08 15:03+0700\n"
+"PO-Revision-Date: 2020-06-08 14:56+0700\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: templates/404.html:4
+msgid "Page does not exist!"
+msgstr "La page n'existe pas!"
+
+#: templates/404.html:9
+msgid "The page you requested doesn't exist!"
+msgstr "La page demandée n'existe pas!"
+
+#: templates/archives.html:4
+msgid "All entries"
+msgstr "Tous les articles"
+
+#: templates/archives.html:8
+msgid "Archive"
+msgstr "Archive"
+
+#: templates/author.html:4 templates/author.html:8
+msgid "Articles by"
+msgstr "Article de"
+
+#: templates/authors.html:4 templates/authors.html:8
+msgid "Authors"
+msgstr "Auteurs"
+
+#: templates/base.html:115
+msgid "Website generated with"
+msgstr "Site généré avec"
+
+#: templates/base.html:115
+msgid "Theme forked from"
+msgstr "Thème dérivé de "
+
+#: templates/base.html:125
+msgid "All rights reserved ©"
+msgstr "Tous droits réservés"
+
+#: templates/categories.html:4 templates/categories.html:8
+msgid "Categories"
+msgstr "Catégories"
+
+#: templates/category.html:4 templates/category.html:8
+#: templates/subcategory.html:4 templates/subcategory.html:8
+msgid "Articles in"
+msgstr "Articles dans"
+
+#: templates/index.html:6
+msgid "Welcome to"
+msgstr "Bienvenue sur"
+
+#: templates/index.html:6
+msgid "!"
+msgstr "!"
+
+#: templates/index.html:8
+msgid "Follow us on"
+msgstr "Suivez nous sur"
+
+#: templates/index.html:8
+msgid "and"
+msgstr "et"
+
+#: templates/index.html:15
+msgid "Last entries"
+msgstr "Dernières entrées"
+
+#: templates/tag.html:4 templates/tag.html:8
+msgid "Articles tagged with"
+msgstr "Articles avec le tag"
+
+#: templates/includes/tag_box.html:3 templates/tags.html:4
+#: templates/tags.html:8
+msgid "Tags"
+msgstr "Tags"
+
+#: templates/includes/last_news_box.html:4
+msgid "Last News"
+msgstr "Dernière nouvelle"
+
