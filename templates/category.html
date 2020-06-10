@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block title %}
-	{% trans %}Articles in{% endtrans %} {{ category }}
+	{% if category == "timeline" %}
+		{% trans %}Historique du projet{% endtrans %}
+	{% else %}
+		{% trans %}Articles in{% endtrans %} {{ category }}
+	{% endif %}
 {% endblock title %}
 
 {% block content %}

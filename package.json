@@ -30,6 +30,7 @@
     "node-sass": "^4.14.1"
   },
   "dependencies": {
+    "bulma-timeline": "^3.0.4",
     "mediaelement": "^4.2.16"
   }
 }

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% trans %}Historique du projet{% endtrans %}- {{ super() }}
+{% endblock title %}
+
+{% block content %}
+<article class="message is-info">
+    <div class="message-header">
+        <h2 class="is-size-5">{% trans %}Historique du projet{% endtrans %}</h2>
+    </div>
+    <div class="message-body has-text-dark">
+        <div class="timeline is-centered">
+            {% set ns = namespace(current_year='2007') %}
+            {% for timeline_elem in articles|selectattr('category', 'eq', 'timeline')|sort(attribute='date', reverse = True)%}
+                {% if ns.current_year != timeline_elem.date.strftime('%Y') %}
+                    {% set ns.current_year = timeline_elem.date.strftime('%Y') %}
+                    <header class="timeline-header">
+                        <span class="tag is-medium is-primary">{{ ns.current_year }}</span>
+                    </header>	
+                {% endif %}
+                <div class="timeline-item is-primary">
+                    {% if timeline_elem.icon %}
+                        {% if timeline_elem.icon.split('.')[1]  %}
+                            <div class="timeline-marker is-link is-image is-32x32">
+                                <img src="/static/images/icons/{{ timeline_elem.icon }}">
+                            </div>
+                        {% else %}
+                            <div class="timeline-marker is-link is-icon is-32x32">
+                                <i class="{{ timeline_elem.icon }}"></i>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    <div class="timeline-content">
+                        <p class="heading title is-5">{{ timeline_elem.date.strftime('%B %Y') }}</p>
+                        <h3 class="title">{{ timeline_elem.title }}</h3>
+                        <figure class="image">
+                            <img src="/static/images/{{ timeline_elem.poster }}">
+                        </figure>
+                        <div class="content">
+                            {{ timeline_elem.content }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}	
+            <header class="timeline-header">
+                <span class="tag is-large is-primary"><i class="fas fa-flag-checkered"></i></span>
+            </header>
+        </div>					
+    </div>
+</article>
+{% endblock content %}

@@ -24,6 +24,7 @@ $family-sans-serif: "Lato", sans-serif;
 
 // must be imported after the modif
 @import "../../node_modules/bulma/bulma.sass";
+@import '../../node_modules/bulma-timeline/dist/css/bulma-timeline.sass';
 
 
 /* Still being the same as in Bulma
@@ -31,15 +32,6 @@ $danger: $red
 $dark: $grey-darker
 $text: $grey-dark
 */
-
-// .navbar-item {
-// 	h4 {
-// 		font-family: 'Chewy';
-// 		color: #888;
-// 		margin-left: 0.5em;
-// 		text-decoration: none !important;
-// 	}
-// }
 
 
 h2 {
