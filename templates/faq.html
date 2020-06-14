@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% trans %}the project's corner stones{% endtrans %}- {{ super() }}
+{% endblock title %}
+
+{% assets filters="closure_js", output="js/packed.js", "themes/buruma/node_modules/bulma-accordion/dist/js/bulma-accordion.min.js" %}
+ <script src="{{ SITEURL }}/{{ ASSET_URL }}"></script>
+{% endassets %}
+
+{% block content %}
+
+{% endblock content %}
