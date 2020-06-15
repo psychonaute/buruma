@@ -135,21 +135,21 @@
 		</section>
 		<footer class="footer">
 			<div class="container has-text-centered">
-				<div class="columns">
+				<div class="columns is-italic is-size-6">
 					<div class="column">
 						{% if FOOTER %}
-							{{ FOOTER }}
+						{{ FOOTER }}
 						{% else %}
-							<p>	{% trans %}Website generated with{% endtrans %}
-								<img class="image" style="height:16px; display:inline;" src="/theme/images/pelican_logo.svg">
-								<a href="https://getpelican.com">Pelican</a> and <a href="https://bulma.io">Bulma</a> 
-								<img class="image" style="height:20px; display:inline; margin-bottom:-5px;" src="/theme/images/bulma-logo.svg">
-								{% trans %}Theme forked from{% endtrans %}
-								<span class="icon is-small"><i class="fab fa-github"></i></span>
-								<a href="https://github.com/ivanhercaz/buruma">Buruma</a></p>
+						<p>	{% trans %}Website generated with{% endtrans %}
+							<img class="image" style="height:16px; display:inline;" src="/theme/images/pelican_logo.svg">
+							<a href="https://getpelican.com">Pelican</a> and <a href="https://bulma.io">Bulma</a> 
+							<img class="image" style="height:20px; display:inline; margin-bottom:-5px;" src="/theme/images/bulma-logo.svg">
+							{% trans %}Theme forked from{% endtrans %}
+							<span class="icon is-small"><i class="fab fa-github"></i></span>
+							<a href="https://github.com/ivanhercaz/buruma">Buruma</a></p>
 						{% endif %}
 					</div>
-					<div class="column">
+					<div class="column is-italic is-size-6"">
 						{% if LICENSE_NOTICE %}
 							{{ LICENSE_NOTICE }}	
 						{% else %}
