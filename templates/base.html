@@ -140,11 +140,14 @@
 						{% if FOOTER %}
 							{{ FOOTER }}
 						{% else %}
-							<p>{% trans %}Website generated with{% endtrans %} <a href="https://getpelican.com">Pelican</a>. {% trans %}Theme forked from{% endtrans %} <a href="https://github.com/ivanhercaz/buruma">Buruma</a></p>
+							<p>	{% trans %}Website generated with{% endtrans %}
+								<img class="image" style="height:16px; display:inline;" src="/theme/images/pelican_logo.svg">
+								<a href="https://getpelican.com">Pelican</a> and <a href="https://bulma.io">Bulma</a> 
+								<img class="image" style="height:20px; display:inline; margin-bottom:-5px;" src="/theme/images/bulma-logo.svg">
+								{% trans %}Theme forked from{% endtrans %}
+								<span class="icon is-small"><i class="fab fa-github"></i></span>
+								<a href="https://github.com/ivanhercaz/buruma">Buruma</a></p>
 						{% endif %}
-						<p><a href="https://bulma.io">
-							<img src="/theme/images/made_with_bulma.png" alt="Made with Bulma" width="128" height="24">
-						</a></p>
 					</div>
 					<div class="column">
 						{% if LICENSE_NOTICE %}

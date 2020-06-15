@@ -11,11 +11,14 @@
 {% block content %}
 	<h1 class="title">{% trans %}Articles in{% endtrans %} <span class="tag is-large">{{ category }}</span></h1>
 	<div class="columns is-multiline">
-		{% for article in dates %}
+		{% for article in dates_page.object_list %}
 			<div class="column {{ loop.cycle('is-half', '') }}">
 				{% include "includes/article_extract.html" %}
 			</div>
 		{% endfor %}
 	</div>
+	{% if articles_page.has_other_pages() %}
+	{% include 'includes/pagination.html' %}
+	{% endif %}		
 {% endblock content %}
 

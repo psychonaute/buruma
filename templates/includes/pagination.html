@@ -1,0 +1,40 @@
+{% set first_page = articles_paginator.page(1) %}
+{% set last_page = articles_paginator.page(articles_paginator.num_pages) %}
+{% set current_page = dates_page %}
+{% set next_page = articles_paginator.page(current_page.number+1) %}
+{% set previous_page = articles_paginator.page(current_page.number-1) %}
+<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    <a  class="pagination-previous" {{ 'disabled' if not current_page.has_previous() }} 
+        href="{{ SITEURL }}/{{ previous_page.url }}">{% trans %}Previous{% endtrans %}</a>
+    <a  class="pagination-next" {{ 'disabled' if not current_page.has_next() }} 
+        href="{{ SITEURL }}/{{ previous_page.url }}">{% trans %}Next{% endtrans %}</a>
+    <ul class="pagination-list">
+        <li><a  class="pagination-link {{ 'is-current' if current_page.number == 1 }}" 
+                aria-label="Goto page 1" 
+                href="{{ SITEURL }}/{{ first_page.url }}">1</a></li>
+        {% if next_page.number > 4 %}
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
+        {% endif %}
+        {% if next_page.number > 3 %}
+        <li><a  class="pagination-link" 
+                aria-label="Goto page {{previous_page.number}}"
+                href="{{ SITEURL }}/{{ previous_page.url }}">{{previous_page.number}}</a></li>
+        {% endif %}
+        {% if first_page.number < current_page.number < last_page.number %}
+        <li><a  class="pagination-link is-current" 
+                aria-label="Page {{current_page.number}}" aria-current="page"
+                href="{{ SITEURL }}/{{ current_page.url }}">{{current_page.number}}</a></li>
+        {% endif %}
+        {% if next_page.number < last_page.number %}
+        <li><a  class="pagination-link" 
+            aria-label="Goto page {{next_page.number}}"
+            href="{{ SITEURL }}/{{ next_page.url }}">{{next_page.number}}</a></li>
+        {% endif %}
+        {% if (next_page.number + 1) < last_page.number %}
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
+        {% endif %}
+        <li><a  class="pagination-link {{ 'is-current' if current_page.number == last_page.number }}" 
+            aria-label="Goto page {{last_page.number}}" 
+            href="{{ SITEURL }}/{{ last_page.url }}">{{last_page.number}}</a></li>
+    </ul>
+</nav>
