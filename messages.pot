@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-08 15:03+0700\n"
+"POT-Creation-Date: 2020-06-16 16:06+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,15 +41,15 @@ msgstr ""
 msgid "Authors"
 msgstr ""
 
-#: templates/base.html:115
+#: templates/base.html:143
 msgid "Website generated with"
 msgstr ""
 
-#: templates/base.html:115
+#: templates/base.html:147
 msgid "Theme forked from"
 msgstr ""
 
-#: templates/base.html:125
+#: templates/base.html:156
 msgid "All rights reserved ©"
 msgstr ""
 
@@ -57,7 +57,11 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: templates/category.html:4 templates/category.html:8
+#: templates/category.html:5
+msgid "Historique du projet"
+msgstr ""
+
+#: templates/category.html:7 templates/category.html:12
 #: templates/subcategory.html:4 templates/subcategory.html:8
 msgid "Articles in"
 msgstr ""
@@ -82,6 +86,10 @@ msgstr ""
 msgid "Last entries"
 msgstr ""
 
+#: templates/lastnews.html:4 templates/lastnews.html:12
+msgid "Last news logs"
+msgstr ""
+
 #: templates/tag.html:4 templates/tag.html:8
 msgid "Articles tagged with"
 msgstr ""
@@ -91,7 +99,24 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
+#: templates/timeline.html:4 templates/timeline.html:10
+msgid "the project's corner stones"
+msgstr ""
+
 #: templates/includes/last_news_box.html:4
 msgid "Last News"
+msgstr ""
+
+#: templates/includes/pagination.html:8
+msgid "Previous"
+msgstr ""
+
+#: templates/includes/pagination.html:10
+msgid "Next"
+msgstr ""
+
+#: templates/includes/pagination.html:13 templates/includes/pagination.html:20
+#: templates/includes/pagination.html:30 templates/includes/pagination.html:37
+msgid "Goto page"
 msgstr ""
 

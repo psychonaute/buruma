@@ -1,16 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<div class="columns">
-		<div class="column">
-			<h1 class="title">{% if WELCOME_HEADING %}{{ WELCOME_HEADING }}{% else %}{% trans %}Welcome to{% endtrans %} {{ SITENAME }}{% trans %}!{% endtrans %}{% endif %}</h1>
-			{% if SITENAME_SLOGAN %}<h2 class="subtitle">{{ SITENAME_SLOGAN }}</h2>{% endif %}
-			{% if SOCIAL and SOCIAL_FRONTPAGE %}<p>{% trans %}Follow us on{% endtrans %} <a class="tag is-link" href="https://www.linkedin.com/in/ivanhercaz">LinkedIn</a>, <a class="tag is-dark" href="https://ivanhercaz.github.io/theme/images/icons/github.png">GitHub</a> {% trans %}and{% endtrans %} <a class="tag is-info"class="tag is-info"  href="https://ivanhercaz.github.io/theme/images/icons/twitter.png">Twitter</a>.</p>{% endif %}
-		</div>
-		<div class="column">
-			{{ ABOUT_EXTRACT }}
-		</div>
-	</div>
 	<div class="container">
 		<h1 class="title">{% trans %}Last entries{% endtrans %}</h1>
 			<div class="columns is-multiline">
@@ -22,5 +12,24 @@
 					{% endif %}
 				{% endfor %}
 			</div>
-	</div>
+		<h1 class="title">{% trans %}The track we've drawn on the world{% endtrans %}</h1>
+		<div id="map"></div>
+			<script>
+
+			function initMap() {
+				var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 11,
+				center: {lat: 41.876, lng: -87.624}
+				});
+
+				var ctaLayer = new google.maps.KmlLayer({
+				url: 'http://www.toutenmarchant.com/static/ressources/homepage_track.kml',
+				map: map
+				});
+			}
+			</script>
+			<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADmhHKGwCtPjU9sBApQHrgEfRTGFXnqSQ&callback=initMap">
+			</script>
+		</div>
 {% endblock content %}

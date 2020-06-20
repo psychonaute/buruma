@@ -21,20 +21,21 @@
 			{{ FONTAWSOME_SCRIPT_TAG }}
 		{% endif%}
 		<title>{% block title %}{{ SITENAME|striptags|e }}{% endblock title %}</title>
-		<link rel="stylesheet" type="text/css" href="{{ main_siteurl }}/theme/css/style.min.css">
-		<script src="{{ main_siteurl }}/theme/js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{ main_siteurl }}/theme/css/main.min.css">
+		<script src="{{ main_siteurl }}/theme/js/main.min.css" type="text/javascript"/> </script>
 		{% if GOOGLE_ANALYTICS %}
 		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-8270972-1"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id={{ GOOGLE_ANALYTICS }}"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
-			gtag('config', '{{GOOGLE_ANALYTICS}}');
+			gtag('config', '{{ GOOGLE_ANALYTICS }}');
 		</script>
 		{% endif %}
 	</head>
-	<body>	
+	<body>
+		{% if output_file != "index.html" %}
 		{% block navbar %}
 		<nav class="navbar {% if NAVBAR_STYLE %}{{ NAVBAR_STYLE }}{% else %}is-primary{% endif %}" role="navigation" aria-label="main navigation">
 				<div class="navbar-brand">
@@ -127,6 +128,9 @@
 			</div>
 			</nav>
 		{% endblock navbar %}
+		{% else %}
+		{% include "includes/hero.html" %}
+		{% endif %}
 		<section class="section">
 			<div class="container">
 				{% block content %}
