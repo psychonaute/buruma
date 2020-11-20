@@ -4,13 +4,16 @@
   "description": "a Pelican theme with Bulma (CSS Framework)",
   "private": true,
   "scripts": {
-    "build:css": "node-sass --omit-source-map-url node_main/scss/main.scss static/css/main.min.css --output-style compressed",
+    "build:css": "node-sass --omit-source-map-url src/scss/main.scss static/css/main.min.css --output-style compressed",
     "build:js": "browserify node_main/js/main.js | uglifyjs -mc > static/js/main.min.js",
     "build:clean": "rimraf static/css/* static/js/*",
     "build": "npm run build:css && npm run build:js",
     "css-watch": "npm run css-build -- --watch",
     "js-watch": "npm run js-build -- --watch",
-    "start": "npm run css-watch js-watch"
+    "start": "npm run css-watch js-watch",
+    "copy:dependencies": "node ./my_dependency_manager/dependency_manager.js",
+    "debug": "node --nolazy --inspect-brk=5858 my_dependency_manager/dependency_manager.js",
+    "test": "python -c print('test')"
   },
   "repository": {
     "type": "git",
@@ -34,9 +37,12 @@
     "browserify": "^16.5.1",
     "bulma": "^0.8.2",
     "node-sass": "^4.14.1",
-    "uglify-js": "github:mishoo/UglifyJS2#harmony"
+    "uglify-js": "github:mishoo/UglifyJS2#harmony",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "@creativebulma/bulma-collapsible": "^1.0.4",
     "bulma-accordion": "^2.0.1",
     "bulma-carousel": "^4.0.4",
     "bulma-timeline": "^3.0.4"

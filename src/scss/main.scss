@@ -2,11 +2,12 @@
 
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Lato|Chewy:regular');
-@import "../../fontawesome/fontawesome.scss";
-@import "../../fontawesome/regular.scss";
-@import "../../fontawesome/solid.scss";
-@import "../../fontawesome/brands.scss";
+@import "fontawesome/fontawesome.scss";
+@import "fontawesome/regular.scss";
+@import "fontawesome/solid.scss";
+@import "fontawesome/brands.scss";
 @import "../../node_modules/bulma-carousel/src/sass/index.sass";
+@import "../../node_modules/@creativebulma/bulma-collapsible/src/sass/index.sass";
 
 /* SCSS HSL */
 $honolulu-blue: rgba(41, 111, 173, 1);
